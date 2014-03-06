@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="app_name">Am I Running GNU/Linux?</string>
+ <string name="webview_url">http://gnu.amirunninglinux.com/</string>
+ <string name="webview_ua_base">amirunninglinux.apk/%s</string>
+</resources>
