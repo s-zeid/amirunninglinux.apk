@@ -26,7 +26,7 @@
  * 
  */
 
-package com.amirunninglinux;
+package com.amirunninglinux.common;
 
 import java.util.regex.Pattern;
 
@@ -41,7 +41,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class AmIRunningLinux extends Activity {
+import com.amirunninglinux.R;
+
+public class CommonActivity extends Activity {
  /** Called when the activity is first created. */
  @Override
  public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,7 @@ public class AmIRunningLinux extends Activity {
   WebView webView = (WebView) this.findViewById(R.id.webview);
   WebSettings webSettings = webView.getSettings();
   
-  String ua = webSettings.getUserAgentString()
+  String ua = webSettings.getUserAgentString() + " "
               + String.format(this.getString(R.string.webview_ua_base), this.getVersion());
   
   // Regex for *accurately* checking the hostname to see if it's ours or a subdomain
@@ -74,7 +76,7 @@ public class AmIRunningLinux extends Activity {
     if (host.matches(re))
      return false;
     
-    AmIRunningLinux.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+    CommonActivity.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     return true;
    }
   });

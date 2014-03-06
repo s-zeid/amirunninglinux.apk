@@ -28,6 +28,6 @@
 
 package com.amirunninglinux.gnu;
 
-import com.amirunninglinux.AmIRunningLinux;
+import com.amirunninglinux.common.CommonActivity;
 
-public class AmIRunningGNULinux extends AmIRunningLinux {}
+public class AmIRunningGNULinux extends CommonActivity {}
