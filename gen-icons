@@ -1,0 +1,25 @@
+#!/bin/bash
+
+src=icon.svg
+dst=ic_launcher.png
+
+function gen_icon() {
+ local px=$1
+ local dst=$2
+ #convert "$src" -resize "$px"x"$px" -background 'rgba(0,0,0,0)' res/drawable-"$res"/"$dst"
+ inkscape -z -e "$dst" -w "$px" -h "$px" "$src"
+}
+
+which inkscape &>/dev/null
+if [ $? -ne 0 ]; then
+ echo "gen-icons: error: Inkscape is required to generate the icons" >&2
+ exit 2
+fi
+
+gen_icon  36 res/drawable-ldpi/"$dst"
+gen_icon  48 res/drawable-mdpi/"$dst"
+gen_icon  72 res/drawable-hdpi/"$dst"
+gen_icon  96 res/drawable-xhdpi/"$dst"
+gen_icon 864 res/drawable-xxhdpi/"$dst"
+
+gen_icon 512 icon.png
